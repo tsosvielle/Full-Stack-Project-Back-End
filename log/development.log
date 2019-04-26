@@ -1,0 +1,345 @@
+Started POST "/sign-up" for ::1 at 2019-04-25 12:59:59 -0400
+  
+ActiveRecord::NoDatabaseError (FATAL:  database "rails-api-template_development" does not exist
+):
+  
+activerecord (5.2.1) lib/active_record/connection_adapters/postgresql_adapter.rb:688:in `rescue in connect'
+activerecord (5.2.1) lib/active_record/connection_adapters/postgresql_adapter.rb:683:in `connect'
+activerecord (5.2.1) lib/active_record/connection_adapters/postgresql_adapter.rb:215:in `initialize'
+activerecord (5.2.1) lib/active_record/connection_adapters/postgresql_adapter.rb:40:in `new'
+activerecord (5.2.1) lib/active_record/connection_adapters/postgresql_adapter.rb:40:in `postgresql_connection'
+activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:809:in `new_connection'
+activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:853:in `checkout_new_connection'
+activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:832:in `try_to_checkout_new_connection'
+activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:793:in `acquire_connection'
+activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:521:in `checkout'
+activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:380:in `connection'
+activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:1008:in `retrieve_connection'
+activerecord (5.2.1) lib/active_record/connection_handling.rb:118:in `retrieve_connection'
+activerecord (5.2.1) lib/active_record/connection_handling.rb:90:in `connection'
+activerecord (5.2.1) lib/active_record/migration.rb:554:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (534.2ms)[0m  [1m[35mCREATE DATABASE "rails-api-template_development" ENCODING = 'unicode'[0m
+  [1m[35m (424.4ms)[0m  [1m[35mCREATE DATABASE "rails-api-template_test" ENCODING = 'unicode'[0m
+  [1m[35m (13.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2240333999022301455)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (1)
+  [1m[35m (3.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying NOT NULL, "token" character varying NOT NULL, "password_digest" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_token" ON "users"  ("token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "1"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateExamples (2)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE TABLE "examples" ("id" bigserial primary key, "text" text NOT NULL, "user_id" bigint NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_ae101d15cc"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_examples_on_user_id" ON "examples"  ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "2"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-04-25 17:04:05.872984"], ["updated_at", "2019-04-25 17:04:05.872984"]]
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2240333999022301455)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/sign-up" for ::1 at 2019-04-25 13:04:34 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#signup as */*
+  Parameters: {"credentials"=>{"email"=>"t@mail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "t@mail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "token", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "t@mail.com"], ["token", "3bd16635f1235538b453e44bd56af08e"], ["password_digest", "$2a$10$J/Ij4jwUClaSDmGEw8hq3ug6lNhdDJw.uJc7uMY47MdhvgfCH1Ppm"], ["created_at", "2019-04-25 17:04:34.938819"], ["updated_at", "2019-04-25 17:04:34.938819"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "t@mail.com"], ["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Json (1.9ms)
+Completed 201 Created in 91ms (Views: 16.5ms | ActiveRecord: 5.6ms)
+
+
+Started POST "/sign-in" for ::1 at 2019-04-25 13:05:03 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"t@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "t@mail.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (3.9ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "7b4e37519c713c9e32fb4bcb9a362f38"], ["updated_at", "2019-04-25 17:05:03.123328"], ["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (5.05ms)
+Completed 200 OK in 75ms (Views: 5.4ms | ActiveRecord: 4.2ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2240333999022301455)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProjects (20190425171314)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "projects" ("id" bigserial primary key, "project_name" character varying, "date" timestamp, "description" character varying, "team_needs" character varying, "contact_email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190425171314"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2240333999022301455)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/projects" for ::1 at 2019-04-25 14:11:29 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProjectsController#create as */*
+  Parameters: {"project"=>{"project_name"=>"Winery", "date"=>"2019-04-25", "description"=>"Fancy new winery", "team_needs"=>"wine guy", "contact_email"=>"winelover@email.com"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActiveModel::Errors (0.1ms)
+Completed 422 Unprocessable Entity in 55ms (Views: 6.2ms | ActiveRecord: 10.2ms)
+
+
+Started POST "/sign-in" for ::1 at 2019-04-25 14:12:51 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"t@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "t@mail.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "fe603630b41269080599eee821eed8ae"], ["updated_at", "2019-04-25 18:12:51.292180"], ["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.17ms)
+Completed 200 OK in 69ms (Views: 0.5ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/projects" for ::1 at 2019-04-25 14:13:03 -0400
+Processing by ProjectsController#create as */*
+  Parameters: {"project"=>{"project_name"=>"Winery", "date"=>"2019-04-25", "description"=>"Fancy new winery", "team_needs"=>"wine guy", "contact_email"=>"winelover@email.com"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActiveModel::Errors (0.06ms)
+Completed 422 Unprocessable Entity in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/projects" for ::1 at 2019-04-25 15:00:55 -0400
+Processing by ProjectsController#create as */*
+  Parameters: {"project"=>{"project_name"=>"Winery", "date"=>"2019-04-25", "description"=>"Fancy new winery", "team_needs"=>"wine guy", "contact_email"=>"winelover@email.com"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActiveModel::Errors (0.05ms)
+Completed 422 Unprocessable Entity in 32ms (Views: 2.2ms | ActiveRecord: 11.0ms)
+
+
+Started POST "/projects" for ::1 at 2019-04-25 15:01:34 -0400
+Processing by ProjectsController#create as */*
+  Parameters: {"project"=>{"project_name"=>"Winery", "date"=>"2019-04-25", "description"=>"Fancy new winery", "team_needs"=>"wine guy", "contact_email"=>"winelover@email.com"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (4.9ms)[0m  [1m[32mINSERT INTO "projects" ("project_name", "date", "description", "team_needs", "contact_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["project_name", "Winery"], ["date", "2019-04-25 00:00:00"], ["description", "Fancy new winery"], ["team_needs", "wine guy"], ["contact_email", "winelover@email.com"], ["created_at", "2019-04-25 19:01:34.616123"], ["updated_at", "2019-04-25 19:01:34.616123"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Json (0.61ms)
+Completed 201 Created in 23ms (Views: 2.1ms | ActiveRecord: 8.1ms)
+
+
+Started POST "/projects" for ::1 at 2019-04-25 15:12:05 -0400
+Processing by ProjectsController#create as */*
+  Parameters: {"project"=>{"project_name"=>"Winery", "date"=>"2019-04-25", "description"=>"Fancy new winery", "team_needs"=>"wine guy", "contact_email"=>"winelover@email.com"}}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `projects' for nil:NilClass):
+  
+app/controllers/projects_controller.rb:18:in `create'
+Started POST "/projects" for ::1 at 2019-04-25 15:15:58 -0400
+Processing by ProjectsController#create as */*
+  Parameters: {"project"=>{"project_name"=>"Winery", "date"=>"2019-04-25", "description"=>"Fancy new winery", "team_needs"=>"wine guy", "contact_email"=>"winelover@email.com"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `projects' for nil:NilClass):
+  
+app/controllers/projects_controller.rb:18:in `create'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2240333999022301455)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddUserIdToProject (20190425192135)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.5ms)[0m  [1m[35mALTER TABLE "projects" ADD "user_id" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190425192135"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (6.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2240333999022301455)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/projects" for ::1 at 2019-04-25 15:22:33 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProjectsController#create as */*
+  Parameters: {"project"=>{"project_name"=>"Winery", "date"=>"2019-04-25", "description"=>"Fancy new winery", "team_needs"=>"wine guy", "contact_email"=>"winelover@email.com"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `projects' for nil:NilClass):
+  
+app/controllers/projects_controller.rb:18:in `create'
+Started POST "/projects" for ::1 at 2019-04-25 15:25:34 -0400
+Processing by ProjectsController#create as */*
+  Parameters: {"project"=>{"project_name"=>"Winery", "date"=>"2019-04-25", "description"=>"Fancy new winery", "team_needs"=>"wine guy", "contact_email"=>"winelover@email.com"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `projects' for nil:NilClass):
+  
+app/controllers/projects_controller.rb:18:in `create'
+Started POST "/projects" for ::1 at 2019-04-25 15:31:37 -0400
+Processing by ProjectsController#create as */*
+  Parameters: {"project"=>{"project_name"=>"Winery", "date"=>"2019-04-25", "description"=>"Fancy new winery", "team_needs"=>"wine guy", "contact_email"=>"winelover@email.com"}}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sign-in" for ::1 at 2019-04-25 15:32:08 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"t@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "t@mail.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "a4c4e3ce51b22bfddd21357a25b9fd9d"], ["updated_at", "2019-04-25 19:32:08.757858"], ["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.26ms)
+Completed 200 OK in 83ms (Views: 0.6ms | ActiveRecord: 10.2ms)
+
+
+Started POST "/projects" for ::1 at 2019-04-25 15:32:14 -0400
+Processing by ProjectsController#create as */*
+  Parameters: {"project"=>{"project_name"=>"Winery", "date"=>"2019-04-25", "description"=>"Fancy new winery", "team_needs"=>"wine guy", "contact_email"=>"winelover@email.com"}}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/projects" for ::1 at 2019-04-25 15:41:36 -0400
+Processing by ProjectsController#create as */*
+  Parameters: {"project"=>{"project_name"=>"Winery", "date"=>"2019-04-25", "description"=>"Fancy new winery", "team_needs"=>"wine guy", "contact_email"=>"winelover@email.com"}}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/projects" for ::1 at 2019-04-25 15:42:35 -0400
+Processing by ProjectsController#create as */*
+  Parameters: {"project"=>{"project_name"=>"Winery", "date"=>"2019-04-25", "description"=>"Fancy new winery", "team_needs"=>"wine guy", "contact_email"=>"winelover@email.com"}}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sign-in" for ::1 at 2019-04-25 15:46:06 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"t@mail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "t@mail.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (1.2ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "4f8e668135ba55898193fe254a49f154"], ["updated_at", "2019-04-25 19:46:06.800554"], ["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.18ms)
+Completed 200 OK in 63ms (Views: 0.5ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/projects" for ::1 at 2019-04-25 15:46:26 -0400
+Processing by ProjectsController#create as */*
+  Parameters: {"project"=>{"project_name"=>"Winery", "date"=>"2019-04-25", "description"=>"Fancy new winery", "team_needs"=>"wine guy", "contact_email"=>"winelover@email.com"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "4f8e668135ba55898193fe254a49f154"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("project_name", "date", "description", "team_needs", "contact_email", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["project_name", "Winery"], ["date", "2019-04-25 00:00:00"], ["description", "Fancy new winery"], ["team_needs", "wine guy"], ["contact_email", "winelover@email.com"], ["created_at", "2019-04-25 19:46:26.217898"], ["updated_at", "2019-04-25 19:46:26.217898"], ["user_id", 1]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Json (0.34ms)
+Completed 201 Created in 83ms (Views: 1.6ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/projects/2" for ::1 at 2019-04-25 15:57:37 -0400
+Processing by ProjectsController#show as */*
+  Parameters: {"id"=>"2"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/projects/2" for ::1 at 2019-04-25 15:58:24 -0400
+Processing by ProjectsController#destroy as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "4f8e668135ba55898193fe254a49f154"], ["LIMIT", 1]]
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."user_id" = $1 AND "projects"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Destroy (0.3ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 5ms (ActiveRecord: 2.1ms)
+
+
+Started POST "/projects" for ::1 at 2019-04-25 15:58:58 -0400
+Processing by ProjectsController#create as */*
+  Parameters: {"project"=>{"project_name"=>"Winery", "date"=>"2019-04-25", "description"=>"Fancy new winery", "team_needs"=>"wine guy", "contact_email"=>"winelover@email.com"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "4f8e668135ba55898193fe254a49f154"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("project_name", "date", "description", "team_needs", "contact_email", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["project_name", "Winery"], ["date", "2019-04-25 00:00:00"], ["description", "Fancy new winery"], ["team_needs", "wine guy"], ["contact_email", "winelover@email.com"], ["created_at", "2019-04-25 19:58:58.151282"], ["updated_at", "2019-04-25 19:58:58.151282"], ["user_id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Json (0.25ms)
+Completed 201 Created in 5ms (Views: 0.8ms | ActiveRecord: 1.7ms)
+
+
+Started DELETE "/projects/3" for ::1 at 2019-04-25 15:59:12 -0400
+Processing by ProjectsController#destroy as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "4f8e668135ba55898193fe254a49f154"], ["LIMIT", 1]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."user_id" = $1 AND "projects"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Destroy (0.3ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = $1[0m  [["id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 4ms (ActiveRecord: 1.3ms)
+
+
+Started DELETE "/projects/3" for ::1 at 2019-04-25 15:59:29 -0400
+Processing by ProjectsController#destroy as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "4f8e668135ba55898193fe254a49f154"], ["LIMIT", 1]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."user_id" = $1 AND "projects"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 3], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 404 Not Found in 5ms (Views: 2.4ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/projects/3" for ::1 at 2019-04-25 16:02:12 -0400
+Processing by ProjectsController#destroy as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "4f8e668135ba55898193fe254a49f154"], ["LIMIT", 1]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."user_id" = $1 AND "projects"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 3], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 404 Not Found in 2ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/projects" for ::1 at 2019-04-25 16:02:27 -0400
+Processing by ProjectsController#create as */*
+  Parameters: {"project"=>{"project_name"=>"Winery", "date"=>"2019-04-25", "description"=>"Fancy new winery", "team_needs"=>"wine guy", "contact_email"=>"winelover@email.com"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "4f8e668135ba55898193fe254a49f154"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("project_name", "date", "description", "team_needs", "contact_email", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["project_name", "Winery"], ["date", "2019-04-25 00:00:00"], ["description", "Fancy new winery"], ["team_needs", "wine guy"], ["contact_email", "winelover@email.com"], ["created_at", "2019-04-25 20:02:27.247980"], ["updated_at", "2019-04-25 20:02:27.247980"], ["user_id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Json (0.24ms)
+Completed 201 Created in 5ms (Views: 0.7ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/projects/4" for ::1 at 2019-04-25 16:02:39 -0400
+Processing by ProjectsController#destroy as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "4f8e668135ba55898193fe254a49f154"], ["LIMIT", 1]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."user_id" = $1 AND "projects"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Destroy (0.2ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = $1[0m  [["id", 4]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 4ms (ActiveRecord: 1.6ms)
+
+
