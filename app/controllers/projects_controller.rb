@@ -1,4 +1,4 @@
-class ProjectsController < ProtectedController
+class ProjectsController < OpenReadController
   before_action :set_project, only: [:update, :destroy]
 
   # GET /projects
@@ -10,6 +10,7 @@ class ProjectsController < ProtectedController
 
   # GET /projects/1
   def show
+    @project = Project.find(params[:id])
     render json: @project
   end
 
@@ -46,6 +47,6 @@ class ProjectsController < ProtectedController
 
     # Only allow a trusted parameter "white list" through.
     def project_params
-      params.require(:project).permit(:project_name, :date, :description, :team_needs, :contact_email)
+      params.require(:project).permit(:project_name, :date, :description, :team_needs, :contact_email, :user_id)
     end
 end

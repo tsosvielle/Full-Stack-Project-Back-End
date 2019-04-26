@@ -6,7 +6,8 @@ class ProjectSerializer < ActiveModel::Serializer
              :date,
              :description,
              :team_needs,
-             :contact_email
+             :contact_email,
+             :user_id
 
   def owned
     scope == object.user

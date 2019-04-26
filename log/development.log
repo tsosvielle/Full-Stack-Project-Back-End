@@ -343,3 +343,382 @@ Processing by ProjectsController#destroy as */*
 Completed 204 No Content in 4ms (ActiveRecord: 1.6ms)
 
 
+Started POST "//sign-in" for ::1 at 2019-04-26 13:43:30 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"monkeybutt@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "monkeybutt@email.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 14ms (ActiveRecord: 6.6ms)
+
+
+Started POST "//sign-up" for ::1 at 2019-04-26 13:43:39 -0400
+Processing by UsersController#signup as */*
+  Parameters: {"credentials"=>{"email"=>"monkeybutt@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "monkeybutt@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (9.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "token", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "monkeybutt@email.com"], ["token", "3df40b56964d8f0557065cfe5ffefc6c"], ["password_digest", "$2a$10$/TleuvDO1sltK/CajMerTe9yJcENGeg5CUVlkN4UEl.KlQ/zDFIRq"], ["created_at", "2019-04-26 17:43:39.217335"], ["updated_at", "2019-04-26 17:43:39.217335"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "monkeybutt@email.com"], ["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Json (3.31ms)
+Completed 201 Created in 101ms (Views: 11.4ms | ActiveRecord: 13.0ms)
+
+
+Started POST "//sign-in" for ::1 at 2019-04-26 13:43:41 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"monkeybutt@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "monkeybutt@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (3.6ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "56358a61726c7e05cb3d3746aaad78bb"], ["updated_at", "2019-04-26 17:43:41.769552"], ["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.62ms)
+Completed 200 OK in 70ms (Views: 1.2ms | ActiveRecord: 4.0ms)
+
+
+Started POST "//sign-in" for ::1 at 2019-04-26 13:46:11 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"monkeybutt@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "monkeybutt@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (32.9ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "1c2c6e2111a865572ef21485ba87625b"], ["updated_at", "2019-04-26 17:46:11.408581"], ["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.3ms)
+Completed 200 OK in 146ms (Views: 0.6ms | ActiveRecord: 54.4ms)
+
+
+Started POST "//sign-in" for ::1 at 2019-04-26 13:49:46 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"monkeybutt@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "monkeybutt@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (2.0ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "5778e903c12fcf052afad837ed4ace45"], ["updated_at", "2019-04-26 17:49:46.481521"], ["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.17ms)
+Completed 200 OK in 64ms (Views: 0.6ms | ActiveRecord: 2.3ms)
+
+
+Started POST "//sign-in" for ::1 at 2019-04-26 13:52:50 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"monkeybutt@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "monkeybutt@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "ba96de270b2d291cf98e82cd6c1eb8fb"], ["updated_at", "2019-04-26 17:52:50.441304"], ["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.17ms)
+Completed 200 OK in 62ms (Views: 0.7ms | ActiveRecord: 1.0ms)
+
+
+Started POST "//sign-in" for ::1 at 2019-04-26 13:53:25 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"monkeybutt@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "monkeybutt@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (1.8ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "36a94f3a060309c8075cf403ce73c264"], ["updated_at", "2019-04-26 17:53:25.564521"], ["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.16ms)
+Completed 200 OK in 64ms (Views: 0.6ms | ActiveRecord: 2.1ms)
+
+
+Started POST "//sign-in" for ::1 at 2019-04-26 13:56:13 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"monkeybutt@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "monkeybutt@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (3.9ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "0b9bce954454bf786a322de8d101808f"], ["updated_at", "2019-04-26 17:56:13.594849"], ["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.16ms)
+Completed 200 OK in 66ms (Views: 0.7ms | ActiveRecord: 4.2ms)
+
+
+Started POST "//sign-in" for ::1 at 2019-04-26 13:56:40 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"monkeybutt@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "monkeybutt@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (2.5ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "6a84b033c2b7ca21a770890eeb19313a"], ["updated_at", "2019-04-26 17:56:40.167935"], ["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.38ms)
+Completed 200 OK in 65ms (Views: 0.7ms | ActiveRecord: 2.8ms)
+
+
+Started POST "//sign-in" for ::1 at 2019-04-26 14:41:09 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"monkeybutt@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (5.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "monkeybutt@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (4.2ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "8122a34be33af81d3d34f95ee3310e41"], ["updated_at", "2019-04-26 18:41:09.659903"], ["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.2ms)
+Completed 200 OK in 69ms (Views: 0.6ms | ActiveRecord: 10.0ms)
+
+
+Started POST "//sign-in" for ::1 at 2019-04-26 14:42:27 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"monkeybutt@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "monkeybutt@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (2.2ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "722e0824acc52df1bd1ab6226911e5fc"], ["updated_at", "2019-04-26 18:42:27.173348"], ["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.21ms)
+Completed 200 OK in 65ms (Views: 0.9ms | ActiveRecord: 2.6ms)
+
+
+Started POST "//sign-in" for ::1 at 2019-04-26 14:46:07 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"monkeybutt@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "monkeybutt@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (2.3ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "238b6a7ed9bd3bd77122c68d64b0a5d7"], ["updated_at", "2019-04-26 18:46:07.975725"], ["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.2ms)
+Completed 200 OK in 65ms (Views: 0.5ms | ActiveRecord: 2.6ms)
+
+
+Started POST "//sign-in" for ::1 at 2019-04-26 14:59:18 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"monkeybutt@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "monkeybutt@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (5.1ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "5a76cb966fb450aae32d5a84015a0a5f"], ["updated_at", "2019-04-26 18:59:18.811218"], ["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.19ms)
+Completed 200 OK in 104ms (Views: 0.6ms | ActiveRecord: 6.0ms)
+
+
+Started POST "//sign-in" for ::1 at 2019-04-26 15:02:15 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"monkeybutt@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "monkeybutt@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (4.0ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "c54157048adfcde47256decfd510e7c3"], ["updated_at", "2019-04-26 19:02:15.326168"], ["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.14ms)
+Completed 200 OK in 116ms (Views: 13.6ms | ActiveRecord: 4.4ms)
+
+
+Started POST "//sign-in" for ::1 at 2019-04-26 15:19:31 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"monkeybutt@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "monkeybutt@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (5.4ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "e55c4be8df985f5179993288268429c5"], ["updated_at", "2019-04-26 19:19:31.871519"], ["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.17ms)
+Completed 200 OK in 84ms (Views: 11.8ms | ActiveRecord: 6.4ms)
+
+
+Started POST "//sign-in" for ::1 at 2019-04-26 15:25:04 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"monkeybutt@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "monkeybutt@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (4.2ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "2fbc3494481dd9b5516397c79220ddf4"], ["updated_at", "2019-04-26 19:25:04.700024"], ["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (4.89ms)
+Completed 200 OK in 77ms (Views: 5.2ms | ActiveRecord: 5.1ms)
+
+
+Started POST "//sign-in" for ::1 at 2019-04-26 15:26:16 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"monkeybutt@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "monkeybutt@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (3.0ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "b6001c332f7c4867d57078cdccc8d1cc"], ["updated_at", "2019-04-26 19:26:16.064432"], ["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.21ms)
+Completed 200 OK in 69ms (Views: 2.5ms | ActiveRecord: 3.3ms)
+
+
+Started POST "//projects" for ::1 at 2019-04-26 15:26:29 -0400
+Processing by ProjectsController#create as */*
+  Parameters: {"project"=>{"project_name"=>"apple store", "date"=>"2019-04-02", "description"=>{"n"=>"sells apples"}, "team_needs"=>"one guy", "contact_email"=>"trevorsosvielle85@gmail.com"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "b6001c332f7c4867d57078cdccc8d1cc"], ["LIMIT", 1]]
+Unpermitted parameter: :description
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (4.6ms)[0m  [1m[32mINSERT INTO "projects" ("project_name", "date", "team_needs", "contact_email", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["project_name", "apple store"], ["date", "2019-04-02 00:00:00"], ["team_needs", "one guy"], ["contact_email", "trevorsosvielle85@gmail.com"], ["created_at", "2019-04-26 19:26:29.887975"], ["updated_at", "2019-04-26 19:26:29.887975"], ["user_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Json (0.62ms)
+Completed 201 Created in 23ms (Views: 1.0ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/projects" for ::1 at 2019-04-26 15:26:56 -0400
+Processing by ProjectsController#index as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects" for ::1 at 2019-04-26 15:28:03 -0400
+Processing by ProjectsController#index as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "//sign-in" for ::1 at 2019-04-26 15:28:08 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"monkeybutt@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "monkeybutt@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (3.0ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "22163ecd0ac4f50fc045293db362a2bf"], ["updated_at", "2019-04-26 19:28:08.387159"], ["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.2ms)
+Completed 200 OK in 64ms (Views: 0.6ms | ActiveRecord: 3.2ms)
+
+
+Started POST "//projects" for ::1 at 2019-04-26 15:28:16 -0400
+Processing by ProjectsController#create as */*
+  Parameters: {"project"=>{"project_name"=>"apple store", "date"=>"2019-04-09", "description"=>{"n"=>"sells apples"}, "team_needs"=>"one guy", "contact_email"=>"trevorsosvielle85@gmail.com"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "22163ecd0ac4f50fc045293db362a2bf"], ["LIMIT", 1]]
+Unpermitted parameter: :description
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("project_name", "date", "team_needs", "contact_email", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["project_name", "apple store"], ["date", "2019-04-09 00:00:00"], ["team_needs", "one guy"], ["contact_email", "trevorsosvielle85@gmail.com"], ["created_at", "2019-04-26 19:28:16.091493"], ["updated_at", "2019-04-26 19:28:16.091493"], ["user_id", 2]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Json (0.21ms)
+Completed 201 Created in 13ms (Views: 0.6ms | ActiveRecord: 2.3ms)
+
+
+Started GET "//projects" for ::1 at 2019-04-26 15:28:37 -0400
+Processing by ProjectsController#index as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects" for ::1 at 2019-04-26 15:28:44 -0400
+Processing by ProjectsController#index as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects" for ::1 at 2019-04-26 15:34:21 -0400
+Processing by ProjectsController#index as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects" for ::1 at 2019-04-26 15:34:22 -0400
+Processing by ProjectsController#index as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "//sign-in" for ::1 at 2019-04-26 15:34:27 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"monkeybutt@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "monkeybutt@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (1.2ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "37d111fa7ded434427cbd0dff3b5ad23"], ["updated_at", "2019-04-26 19:34:27.558094"], ["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.27ms)
+Completed 200 OK in 104ms (Views: 0.7ms | ActiveRecord: 29.4ms)
+
+
+Started POST "//projects" for ::1 at 2019-04-26 15:34:35 -0400
+Processing by ProjectsController#create as */*
+  Parameters: {"project"=>{"project_name"=>"apple store", "date"=>"2019-04-09", "description"=>{"n"=>"sells apples"}, "team_needs"=>"one guy", "contact_email"=>"trevorsosvielle85@gmail.com"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "37d111fa7ded434427cbd0dff3b5ad23"], ["LIMIT", 1]]
+Unpermitted parameter: :description
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (2.2ms)[0m  [1m[32mINSERT INTO "projects" ("project_name", "date", "team_needs", "contact_email", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["project_name", "apple store"], ["date", "2019-04-09 00:00:00"], ["team_needs", "one guy"], ["contact_email", "trevorsosvielle85@gmail.com"], ["created_at", "2019-04-26 19:34:35.222194"], ["updated_at", "2019-04-26 19:34:35.222194"], ["user_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Json (0.44ms)
+Completed 201 Created in 24ms (Views: 2.1ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/projects" for ::1 at 2019-04-26 15:34:38 -0400
+Processing by ProjectsController#index as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects" for ::1 at 2019-04-26 15:34:39 -0400
+Processing by ProjectsController#index as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "//sign-in" for ::1 at 2019-04-26 15:36:05 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"monkeybutt@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "monkeybutt@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (31.1ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "e2a1f02ae895a8d8a95b603d38c41a5c"], ["updated_at", "2019-04-26 19:36:05.323490"], ["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.15ms)
+Completed 200 OK in 80ms (Views: 0.5ms | ActiveRecord: 31.4ms)
+
+
+Started POST "//projects" for ::1 at 2019-04-26 15:36:24 -0400
+Processing by ProjectsController#create as */*
+  Parameters: {"project"=>{"project_name"=>"orange store", "date"=>"2012-11-27", "description"=>{"n"=>"orange store"}, "team_needs"=>"orange guy", "contact_email"=>"orangeguy@email.com"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "e2a1f02ae895a8d8a95b603d38c41a5c"], ["LIMIT", 1]]
+Unpermitted parameter: :description
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("project_name", "date", "team_needs", "contact_email", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["project_name", "orange store"], ["date", "2012-11-27 00:00:00"], ["team_needs", "orange guy"], ["contact_email", "orangeguy@email.com"], ["created_at", "2019-04-26 19:36:24.778695"], ["updated_at", "2019-04-26 19:36:24.778695"], ["user_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Json (0.26ms)
+Completed 201 Created in 5ms (Views: 0.7ms | ActiveRecord: 1.0ms)
+
+
+Started POST "//sign-in" for ::1 at 2019-04-26 15:40:34 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"monkeybutt@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "monkeybutt@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "a30436c00ae71db83d6cbec354a76b92"], ["updated_at", "2019-04-26 19:40:34.248616"], ["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.18ms)
+Completed 200 OK in 83ms (Views: 0.6ms | ActiveRecord: 3.6ms)
+
+
+Started POST "//projects" for ::1 at 2019-04-26 15:40:51 -0400
+Processing by ProjectsController#create as */*
+  Parameters: {"project"=>{"project_name"=>"orange store", "date"=>"2019-04-17", "description"=>{"n"=>"orange store"}, "team_needs"=>"orange guy", "contact_email"=>"trevorsosvielle85@gmail.com"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "a30436c00ae71db83d6cbec354a76b92"], ["LIMIT", 1]]
+Unpermitted parameter: :description
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("project_name", "date", "team_needs", "contact_email", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["project_name", "orange store"], ["date", "2019-04-17 00:00:00"], ["team_needs", "orange guy"], ["contact_email", "trevorsosvielle85@gmail.com"], ["created_at", "2019-04-26 19:40:51.196221"], ["updated_at", "2019-04-26 19:40:51.196221"], ["user_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Json (0.53ms)
+Completed 201 Created in 24ms (Views: 1.9ms | ActiveRecord: 4.1ms)
+
+
+Started POST "//projects" for ::1 at 2019-04-26 15:41:34 -0400
+Processing by ProjectsController#create as */*
+  Parameters: {"project"=>{"project_name"=>"orange store", "date"=>"2019-04-17", "description"=>{"n"=>"orange store"}, "team_needs"=>"orange guy", "contact_email"=>"trevorsosvielle85@gmail.com"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "a30436c00ae71db83d6cbec354a76b92"], ["LIMIT", 1]]
+Unpermitted parameter: :description
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("project_name", "date", "team_needs", "contact_email", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["project_name", "orange store"], ["date", "2019-04-17 00:00:00"], ["team_needs", "orange guy"], ["contact_email", "trevorsosvielle85@gmail.com"], ["created_at", "2019-04-26 19:41:34.279545"], ["updated_at", "2019-04-26 19:41:34.279545"], ["user_id", 2]]
+  [1m[35m (7.1ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Json (0.42ms)
+Completed 201 Created in 16ms (Views: 1.0ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/projects" for ::1 at 2019-04-26 15:42:05 -0400
+Processing by ProjectsController#index as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "//sign-in" for ::1 at 2019-04-26 15:43:10 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"monkeybutt@email.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "monkeybutt@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (2.5ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "4a7187fb45ac0caf632e6aa3aa30cacf"], ["updated_at", "2019-04-26 19:43:10.535527"], ["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.17ms)
+Completed 200 OK in 68ms (Views: 0.5ms | ActiveRecord: 2.7ms)
+
+
+Started POST "//projects" for ::1 at 2019-04-26 15:43:26 -0400
+Processing by ProjectsController#create as */*
+  Parameters: {"project"=>{"project_name"=>"apple store", "date"=>"2019-04-08", "description"=>"sells apples", "team_needs"=>"apple guy", "contact_email"=>"appleguy@email.com"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "4a7187fb45ac0caf632e6aa3aa30cacf"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("project_name", "date", "description", "team_needs", "contact_email", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["project_name", "apple store"], ["date", "2019-04-08 00:00:00"], ["description", "sells apples"], ["team_needs", "apple guy"], ["contact_email", "appleguy@email.com"], ["created_at", "2019-04-26 19:43:26.989314"], ["updated_at", "2019-04-26 19:43:26.989314"], ["user_id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Json (0.26ms)
+Completed 201 Created in 5ms (Views: 0.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/projects" for ::1 at 2019-04-26 15:44:05 -0400
+Processing by ProjectsController#index as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects" for ::1 at 2019-04-26 15:44:06 -0400
+Processing by ProjectsController#index as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects" for ::1 at 2019-04-26 15:47:34 -0400
+Processing by ProjectsController#index as */*
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects" for ::1 at 2019-04-26 15:54:11 -0400
+Processing by ProjectsController#index as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects" for ::1 at 2019-04-26 15:54:12 -0400
+Processing by ProjectsController#index as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects" for ::1 at 2019-04-26 15:54:13 -0400
+Processing by ProjectsController#index as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects" for ::1 at 2019-04-26 16:24:34 -0400
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (1.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (5.26ms)
+Completed 200 OK in 60ms (Views: 38.4ms | ActiveRecord: 13.2ms)
+
+
