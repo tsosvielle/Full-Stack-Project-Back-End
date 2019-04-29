@@ -1,4 +1,4 @@
-curl http://localhost:4741/projects/${ID} \
+curl "http://localhost:4741/projects/${ID}" \
 --request PATCH \
 --include \
 --header "Authorization: Token token=${TOKEN}" \

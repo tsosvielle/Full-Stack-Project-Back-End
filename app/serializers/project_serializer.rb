@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'pry'
 
 class ProjectSerializer < ActiveModel::Serializer
   attributes :id,
@@ -7,7 +8,8 @@ class ProjectSerializer < ActiveModel::Serializer
              :description,
              :team_needs,
              :contact_email,
-             :user_id
+             :user_id,
+             :owned
 
   def owned
     scope == object.user
