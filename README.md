@@ -42,10 +42,11 @@ projects. Users have token authorization once accounts are created and they
 are logged in. Accounts take emails and passwords as unique identifiers and
 security. Projects accepts name, description, date, email, and userid. Backend
 features were put in place with scaffolding. Users and projects have a one to
-many relationship where a user can have many projects. Basic crud functionality 
+many relationship where a user can have many projects. Basic crud functionality
 is in place for both users and projects.
 
 User Stories:
+https://github.com/tsosvielle/Full-Stack-Project-Back-End/blob/master/userstories.md
 
 Wireframe and ERD:
 https://imgur.com/a/qbSPGj3
