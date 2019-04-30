@@ -1,6 +1,4 @@
 # frozen_string_literal: true
-require 'pry'
-
 class ProjectSerializer < ActiveModel::Serializer
   attributes :id,
              :project_name,

@@ -3698,3 +3698,48 @@ Processing by ProjectsController#index as */*
 Completed 200 OK in 14ms (Views: 11.5ms | ActiveRecord: 1.7ms)
 
 
+Started POST "//sign-up" for ::1 at 2019-04-30 12:09:20 -0400
+Processing by UsersController#signup as */*
+  Parameters: {"credentials"=>{"email"=>"trevorsosvielle85@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (6.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (7.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "trevorsosvielle85@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (4.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "trevorsosvielle85@gmail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActiveModel::Errors (0.54ms)
+Completed 400 Bad Request in 271ms (Views: 5.8ms | ActiveRecord: 18.9ms)
+
+
+Started POST "//sign-up" for ::1 at 2019-04-30 13:00:27 -0400
+Processing by UsersController#signup as */*
+  Parameters: {"credentials"=>{"email"=>"jo@jo.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (7.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jo@jo.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (21.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "token", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "jo@jo.com"], ["token", "f8b0b3d8c7c3a143d6c5ee3f11d34d4e"], ["password_digest", "$2a$10$ocJ35tjDGwI6JxjtSWnXquGZv1nid32KKKC0VKG27B/2xLlSfROIy"], ["created_at", "2019-04-30 17:00:27.260727"], ["updated_at", "2019-04-30 17:00:27.260727"]]
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "jo@jo.com"], ["id", 3], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Json (11.36ms)
+Completed 201 Created in 184ms (Views: 17.6ms | ActiveRecord: 33.9ms)
+
+
+Started POST "//sign-in" for ::1 at 2019-04-30 13:00:36 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"jo@jo.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jo@jo.com"], ["LIMIT", 1]]
+  [1m[36mUser Update (8.4ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "c13d56da473f8bb96544dbe938e401af"], ["updated_at", "2019-04-30 17:00:36.519918"], ["id", 3]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (8.27ms)
+Completed 200 OK in 105ms (Views: 12.8ms | ActiveRecord: 9.0ms)
+
+
+Started GET "//projects" for ::1 at 2019-04-30 13:00:41 -0400
+Processing by ProjectsController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "c13d56da473f8bb96544dbe938e401af"], ["LIMIT", 1]]
+  [1m[36mProject Load (5.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (41.67ms)
+Completed 200 OK in 70ms (Views: 47.5ms | ActiveRecord: 6.0ms)
+
+
